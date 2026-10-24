@@ -15,7 +15,7 @@
 
 2. **Windows Інсталятор Скриптів (`harness-installer`)**:
    - Graphical Wizard GUI (на базі Tkinter) та CLI режими.
-   - Динамічне сканування директорії `script/` для файлів `.ps1`, `.bat`, `.cmd`, `.vbs`, `.py`, `.sh`.
+   - Динамічне сканування директорії `scripts/` для файлів `.ps1`, `.bat`, `.cmd`, `.vbs`, `.py`, `.sh`.
    - **Можливість додавання нових скриптів**: додавання нових скриптів через GUI ("➕ Add Custom Script...") або CLI (`--add-script path/to/script.ps1`).
    - Автоматичне створення обгорток командного рядка (`.bat` launchers) для запуска PowerShell та Python скриптів напряму з консолі.
    - Додавання директорії встановлення у системну/користувацьку змінну оточення `PATH` з сповіщенням Windows (`WM_SETTINGCHANGE`).
@@ -53,7 +53,7 @@ harness-utils create-harness my_new_project --target C:/Projects/my_new_project
 
 #### Графічний майстер (GUI)
 Запустіть підключений скрипт у проекті:
-- Double-click `scripts/install_scripts.bat` або запустіть у PowerShell `.\script\install_scripts.ps1`
+- Double-click `scripts/install_scripts.bat` або запустіть у PowerShell `.\scripts\install_scripts.ps1`
 - Або виконай в консолі:
   ```bash
   harness-installer --gui
@@ -107,5 +107,5 @@ pytest
     - `gui.py` - Graphical Wizard GUI на Tkinter.
     - `builder.py` - Модуль компіляції автономного `.exe` за допомогою PyInstaller.
   - `cli.py` - Головний CLI маршрутизатор та команди.
-- `script/` - Наявні скрипти проекту (`create_harness.bat`, `create_harness.ps1`, `install_scripts.bat`, тощо).
+- `scripts/` - Наявні скрипти проекту (`create_harness.bat`, `create_harness.ps1`, `install_scripts.bat`, тощо).
 - `tests/` - Повний набір unit та integration тестів.

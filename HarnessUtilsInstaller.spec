@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['E:/Projects/harness_utils/src/harness_utils/cli.py'],
+    ['E:/Projects/harness_utils/src/harness_utils/cli.py',],
     pathex=[],
     binaries=[],
-    datas=[('E:/Projects/harness_utils/script', 'script')],
+    datas=[('E:/Projects/harness_utils/scripts', 'scripts')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

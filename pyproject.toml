@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "harness-utils"
-version = "0.1.0"
+version = "0.2.0"
 description = "Tool for generating project harness files and installing script utilities on Windows"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
     "python-dotenv>=1.0.0",
     "pydantic>=2.0.0",
@@ -39,14 +39,13 @@ pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N"]
 ignore = ["E501", "N806"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.13"
 strict = true
 warn_return_any = true
 warn_unused_configs = true

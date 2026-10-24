@@ -1,5 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "harness-utils"
 version = "0.1.0"
-requires-python = ">=3.13"
-dependencies = []
+description = "Tool for generating project harness files and installing script utilities on Windows"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "loguru>=0.7.0",
+    "pywin32>=306; sys_platform == 'win32'",
+    "pyinstaller>=6.0.0",
+]
+
+[project.scripts]
+harness-utils = "harness_utils.cli:main"
+harness-create = "harness_utils.cli:cli_create_harness"
+harness-installer = "harness_utils.cli:cli_installer"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.3.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --cov=src --cov-report=term-missing"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["E501", "N806"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+explicit_package_bases = true
+mypy_path = "src"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
